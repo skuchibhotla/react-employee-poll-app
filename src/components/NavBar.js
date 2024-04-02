@@ -10,7 +10,7 @@ const Nav = ({dispatch, authedUserId}) => {
     };
 
     return (
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <Link to="/" className="navbar-brand">Employee Poll App</Link>
             <Link to="/" className="nav-link">Home</Link>
             <Link to="/leaderboard" className="nav-link">Leaderboard</Link>

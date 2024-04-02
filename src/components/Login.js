@@ -32,7 +32,7 @@ const Login = ({dispatch, loggedIn}) => {
     };
 
     return (
-        <div>
+        <div data-testid="custom-login">
             <h1 className="text-3xl font-bold mt-9" data-testid="login-heading">Login</h1>
             <form onSubmit={handleSubmit}>
                 {/* User Name */}

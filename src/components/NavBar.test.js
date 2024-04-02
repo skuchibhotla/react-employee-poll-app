@@ -3,8 +3,9 @@ import {Provider} from "react-redux";
 import {store} from "../store";
 import {BrowserRouter} from "react-router-dom";
 import React from "react";
-import Nav from "./Nav";
+
 import {setAuthedUser} from "../actions/authedUser";
+import NavBar from "./NavBar";
 
 describe("Nav", () => {
     it("should render the component", () => {
@@ -13,7 +14,7 @@ describe("Nav", () => {
         const component = render(
             <Provider store={store}>
                 <BrowserRouter>
-                    <Nav/>
+                    <NavBar/>
                 </BrowserRouter>
             </Provider>
         );
@@ -27,7 +28,7 @@ describe("Nav", () => {
         const component = render(
             <Provider store={store}>
                 <BrowserRouter>
-                    <Nav/>
+                    <NavBar/>
                 </BrowserRouter>
             </Provider>
         );

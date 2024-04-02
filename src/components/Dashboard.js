@@ -10,8 +10,8 @@ const Dashboard = ({authedUser, questions, users}) => {
         || question.optionTwo.votes.includes(authedUser.id));
 
     return (
-        <div>
-            <h1 data-testid="heading">Dashboard</h1>
+        <div data-testid="custom-dashboard">
+            <h1>Dashboard</h1>
 
             <h2>New Questions</h2>
             <ul className="list-group" style={{ 
