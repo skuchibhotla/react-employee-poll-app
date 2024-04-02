@@ -7,6 +7,7 @@ const NewPoll = ({dispatch}) => {
     const navigate = useNavigate();
     const [firstOption, setFirstOption] = useState("");
     const [secondOption, setSecondOption] = useState("");
+    const [errorMessage, setErrorMessage] = useState("");
 
     const handleFirstOptionChange = (e) => {
         const value = e.target.value;
@@ -20,6 +21,12 @@ const NewPoll = ({dispatch}) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+
+        if (!firstOption || !secondOption) {
+            setErrorMessage("Error: Text for both options is required!"); // Set error message...
+            return; 
+        }
+
         dispatch(handleAddQuestion(firstOption, secondOption));
         navigate("/");
     };
@@ -27,6 +34,11 @@ const NewPoll = ({dispatch}) => {
     return (
         <div>
             <h1>New Poll</h1>
+
+            {/* Error message... */}
+            {errorMessage && <div className="error" data-testid="error-message">{errorMessage}</div>}
+
+
             <form onSubmit={handleSubmit}>
                 {/* First Option */}
                 <div className="form-group">

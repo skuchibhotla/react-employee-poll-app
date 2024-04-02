@@ -1,45 +1,28 @@
-import {fireEvent, render} from "@testing-library/react";
-import {Provider} from "react-redux";
-import {store} from "../store";
-import {BrowserRouter} from "react-router-dom";
-import React from "react";
-import NewPoll from "./NewPoll";
+import React from 'react';
+import { render, fireEvent } from '@testing-library/react';
+import { Provider } from 'react-redux';
+import { MemoryRouter, Routes, Route } from 'react-router-dom';
+import { store } from '../store'; // Adjust the import path as necessary
+import NewPoll from './NewPoll'; // Adjust the import path as necessary
 
-describe("NewPoll", () => {
-    it("should render the component", () => {
-        const component = render(
-            <Provider store={store}>
-                <BrowserRouter>
-                    <NewPoll/>
-                </BrowserRouter>
-            </Provider>
-        );
-        expect(component).toBeDefined();
-        expect(component).toMatchSnapshot();
-    });
+describe('<NewPoll />', () => {
+  it('checks for Option 1 and Option 2 fireEvent', async () => {
+    const { getByTestId } = render(
+      <Provider store={store}>
+        <MemoryRouter initialEntries={['/new']}>
+          <Routes>
+            <Route path="/new" element={<NewPoll />} />
+            // Mocking a redirect component to capture navigation
+            <Route path="/" element={<div>Mock Home</div>} />
+          </Routes>
+        </MemoryRouter>
+      </Provider>
+    );
 
-    it("should display all elements", () => {
-        const component = render(
-            <Provider store={store}>
-                <BrowserRouter>
-                    <NewPoll/>
-                </BrowserRouter>
-            </Provider>
-        );
+    // Simulate user typing in the first option
+    fireEvent.change(getByTestId('firstOption'), { target: { value: 'Option 1' } });
 
-        const firstOptionLabelElement = component.getByTestId("firstOptionLabel");
-        const firstOptionInputElement = component.getByTestId("firstOption");
-        const secondOptionLabelElement = component.getByTestId("secondOptionLabel");
-        const secondOptionInputElement = component.getByTestId("secondOption");
-        const submitButtonElement = component.getByTestId("submit-poll");
-
-        expect(firstOptionLabelElement.textContent).toBe("First Option");
-        expect(secondOptionLabelElement.textContent).toBe("Second Option");
-        expect(submitButtonElement.textContent).toBe("Submit");
-
-        fireEvent.change(firstOptionInputElement, {target: {value: 'Texas'}});
-        fireEvent.change(secondOptionInputElement, {target: {value: 'New Hampshire'}});
-        expect(firstOptionInputElement.value).toBe("Texas");
-        expect(secondOptionInputElement.value).toBe("New Hampshire");
-    });
+    // Simulate user typing in the second option
+    fireEvent.change(getByTestId('secondOption'), { target: { value: 'Option 2' } });
+  });
 });

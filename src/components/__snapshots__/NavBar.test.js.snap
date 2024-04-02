@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Nav should render the component 1`] = `
+exports[`Nav should render the NavBar component 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
@@ -40,7 +40,7 @@ Object {
             data-testid="user-information"
           >
             User: 
-            sarahedo
+            tylermcginnis
           </span>
           <button
             class="btn btn-danger"
@@ -87,7 +87,7 @@ Object {
           data-testid="user-information"
         >
           User: 
-          sarahedo
+          tylermcginnis
         </span>
         <button
           class="btn btn-danger"

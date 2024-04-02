@@ -8,8 +8,8 @@ import {setAuthedUser} from "../actions/authedUser";
 import NavBar from "./NavBar";
 
 describe("Nav", () => {
-    it("should render the component", () => {
-        store.dispatch(setAuthedUser({id: "sarahedo", password: ""}));
+    it("should render the NavBar component", () => {
+        store.dispatch(setAuthedUser({id: "tylermcginnis", password: ""}));
 
         const component = render(
             <Provider store={store}>
@@ -23,7 +23,7 @@ describe("Nav", () => {
     });
 
     it("should display username of logged in user", () => {
-        store.dispatch(setAuthedUser({id: "sarahedo", password: ""}));
+        store.dispatch(setAuthedUser({id: "tylermcginnis", password: ""}));
 
         const component = render(
             <Provider store={store}>
@@ -34,7 +34,7 @@ describe("Nav", () => {
         );
 
         const userSpanElement = component.getByTestId("user-information");
-        expect(userSpanElement.textContent).toBe("User: sarahedo");
+        expect(userSpanElement.textContent).toBe("User: tylermcginnis");
 
     });
 });

@@ -7,6 +7,7 @@ const Login = ({dispatch, loggedIn}) => {
     // Starting with blank state for username and password...
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [errorMessage, setErrorMessage] = useState("");
 
     if (loggedIn) {
         const urlParams = new URLSearchParams(window.location.search);
@@ -26,6 +27,12 @@ const Login = ({dispatch, loggedIn}) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+
+        if (!username || !password) {
+            setErrorMessage("Error: Username and password are required!"); // Set error message...
+            return; // Stop the function execution...
+        }
+
         dispatch(handleLogin(username, password));
         setUsername("");
         setPassword("");
@@ -34,6 +41,11 @@ const Login = ({dispatch, loggedIn}) => {
     return (
         <div data-testid="custom-login">
             <h1 className="text-3xl font-bold mt-9" data-testid="login-heading">Login</h1>
+            
+            {/* Error message... */}
+            {errorMessage && <div className="error" data-testid="error-message">{errorMessage}</div>}
+
+
             <form onSubmit={handleSubmit}>
                 {/* User Name */}
                 <div className="form-group">
@@ -47,6 +59,7 @@ const Login = ({dispatch, loggedIn}) => {
                             data-testid="username"
                         />
                 </div>
+
                 {/* Password */}
                 <div className="form-group">
                     <label htmlFor="password">Password</label>

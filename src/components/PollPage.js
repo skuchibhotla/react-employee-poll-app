@@ -1,7 +1,6 @@
 import {connect} from "react-redux";
 import {Navigate, useNavigate, useParams} from "react-router-dom";
 import {handleAddAnswer} from "../actions/questions";
-import "./PollPage.css";
 
 const PollPage = ({dispatch, authedUser, question, author}) => {
     const navigate = useNavigate();

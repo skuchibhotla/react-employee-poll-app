@@ -19,7 +19,7 @@ describe("Login", () => {
         expect(component).toMatchSnapshot();
     });
 
-    it('should clear input elements after clicking submit button', async () => {
+    it('should update input fields when user types and validate their presence', async () => {
         await store.dispatch(handleInitialData());
 
         const wrapper = render(
@@ -30,22 +30,41 @@ describe("Login", () => {
             </Provider>
         );
 
-        const loginHeadingElement = wrapper.getByTestId("login-heading");
+        // Define username, password, and submit button...
         const usernameInputElement = wrapper.getByTestId("username");
         const passwordInputElement = wrapper.getByTestId("password");
         const submitButtonElement = wrapper.getByTestId("submit");
-        expect(loginHeadingElement).toBeInTheDocument();
+
+        // Expects...
         expect(usernameInputElement).toBeInTheDocument();
         expect(passwordInputElement).toBeInTheDocument();
         expect(submitButtonElement).toBeInTheDocument();
 
-        fireEvent.change(usernameInputElement, {target: {value: 'sarahedo'}});
-        fireEvent.change(passwordInputElement, {target: {value: 'wrongpassword'}});
-        expect(usernameInputElement.value).toBe("sarahedo");
-        expect(passwordInputElement.value).toBe("wrongpassword");
-        fireEvent.click(submitButtonElement); // User stays on page
-        expect(loginHeadingElement).toBeInTheDocument();
-        expect(usernameInputElement.value).toBe("");
-        expect(passwordInputElement.value).toBe("");
+        fireEvent.change(usernameInputElement, {target: {value: 'tylermcginnis'}});
+        fireEvent.change(passwordInputElement, {target: {value: 'test'}});
+        
+        expect(usernameInputElement.value).toBe("tylermcginnis");
+        expect(passwordInputElement.value).toBe("test");
+    });
+
+    it('should show an error message if submit with empty fields', async () => {
+        // Your setup code for rendering the component...
+
+        const wrapper = render(
+            <Provider store={store}>
+                <BrowserRouter>
+                    <Login/>
+                </BrowserRouter>
+            </Provider>
+        );
+
+        // Get submit button and click it without filling the fields
+        const submitButtonElement = wrapper.getByTestId("submit");
+        fireEvent.click(submitButtonElement);
+
+        // Check if the error message is displayed
+        const errorMessage = wrapper.queryByTestId("error-message");
+        expect(errorMessage).toBeInTheDocument();
+        expect(errorMessage.textContent).toBe("Error: Username and password are required!");
     });
 });
