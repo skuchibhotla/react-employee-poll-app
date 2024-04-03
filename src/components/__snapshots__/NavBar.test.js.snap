@@ -6,44 +6,44 @@ Object {
   "baseElement": <body>
     <div>
       <nav
-        class="navbar navbar-expand-lg navbar-light bg-light"
+        className="navbar navbar-expand-lg navbar-light bg-light"
       >
         <a
-          class="navbar-brand"
+          className="navbar-brand"
           href="/"
         >
           Employee Poll App
         </a>
         <a
-          class="nav-link"
+          className="nav-link"
           href="/"
         >
           Home
         </a>
         <a
-          class="nav-link"
+          className="nav-link"
           href="/leaderboard"
         >
           Leaderboard
         </a>
         <a
-          class="nav-link"
+          className="nav-link"
           href="/new"
         >
           New Poll
         </a>
         <div
-          class="ml-auto d-flex align-items-center"
+          className="ml-auto d-flex align-items-center"
         >
           <span
-            class="navbar-text mr-2"
+            className="navbar-text mr-2"
             data-testid="user-information"
           >
             User: 
             tylermcginnis
           </span>
           <button
-            class="btn btn-danger"
+            className="btn btn-danger"
           >
             Logout
           </button>
@@ -53,44 +53,44 @@ Object {
   </body>,
   "container": <div>
     <nav
-      class="navbar navbar-expand-lg navbar-light bg-light"
+      className="navbar navbar-expand-lg navbar-light bg-light"
     >
       <a
-        class="navbar-brand"
+        className="navbar-brand"
         href="/"
       >
         Employee Poll App
       </a>
       <a
-        class="nav-link"
+        className="nav-link"
         href="/"
       >
         Home
       </a>
       <a
-        class="nav-link"
+        className="nav-link"
         href="/leaderboard"
       >
         Leaderboard
       </a>
       <a
-        class="nav-link"
+        className="nav-link"
         href="/new"
       >
         New Poll
       </a>
       <div
-        class="ml-auto d-flex align-items-center"
+        className="ml-auto d-flex align-items-center"
       >
         <span
-          class="navbar-text mr-2"
+          className="navbar-text mr-2"
           data-testid="user-information"
         >
           User: 
           tylermcginnis
         </span>
         <button
-          class="btn btn-danger"
+          className="btn btn-danger"
         >
           Logout
         </button>

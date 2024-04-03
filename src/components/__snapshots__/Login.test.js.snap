@@ -9,14 +9,14 @@ Object {
         data-testid="custom-login"
       >
         <h1
-          class="text-3xl font-bold mt-9"
+          className="text-3xl font-bold mt-9"
           data-testid="login-heading"
         >
           Login
         </h1>
         <form>
           <div
-            class="form-group"
+            className="form-group"
           >
             <label
               for="username"
@@ -24,7 +24,7 @@ Object {
               Username
             </label>
             <input
-              class="form-control"
+              className="form-control"
               data-testid="username"
               id="username"
               name="username"
@@ -33,7 +33,7 @@ Object {
             />
           </div>
           <div
-            class="form-group"
+            className="form-group"
           >
             <label
               for="password"
@@ -41,7 +41,7 @@ Object {
               Password
             </label>
             <input
-              class="form-control"
+              className="form-control"
               data-testid="password"
               id="password"
               name="password"
@@ -50,7 +50,7 @@ Object {
             />
           </div>
           <button
-            class="btn btn-primary"
+            className="btn btn-primary"
             data-testid="submit"
             type="submit"
           >
@@ -65,14 +65,14 @@ Object {
       data-testid="custom-login"
     >
       <h1
-        class="text-3xl font-bold mt-9"
+        className="text-3xl font-bold mt-9"
         data-testid="login-heading"
       >
         Login
       </h1>
       <form>
         <div
-          class="form-group"
+          className="form-group"
         >
           <label
             for="username"
@@ -80,7 +80,7 @@ Object {
             Username
           </label>
           <input
-            class="form-control"
+            className="form-control"
             data-testid="username"
             id="username"
             name="username"
@@ -89,7 +89,7 @@ Object {
           />
         </div>
         <div
-          class="form-group"
+          className="form-group"
         >
           <label
             for="password"
@@ -97,7 +97,7 @@ Object {
             Password
           </label>
           <input
-            class="form-control"
+            className="form-control"
             data-testid="password"
             id="password"
             name="password"
@@ -106,7 +106,7 @@ Object {
           />
         </div>
         <button
-          class="btn btn-primary"
+          className="btn btn-primary"
           data-testid="submit"
           type="submit"
         >
